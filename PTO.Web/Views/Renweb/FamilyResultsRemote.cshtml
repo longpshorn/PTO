@@ -1,0 +1,12 @@
+﻿@model IPagedList<RenwebFamilyResult>
+
+@section featured {
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Renweb Directory Listing</h1>
+      <h2>This page lists the contents of renweb's directory.</h2>
+    </div>
+  </div>
+}
+
+@{ Html.RenderPartial("_RenwebFamilyPagedTable", new Tuple<IPagedList<RenwebFamilyResult>, string>(Model, "FamilyResultsRemote")); }

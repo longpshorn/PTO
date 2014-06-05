@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.renweb.com/webservices/pwSchool/classSite/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.renweb.com/webservices/pwSchool/classSite/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Welcome to the ParentsWeb webservices.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.renweb.com/webservices/pwSchool/classSite/">
+      <s:element name="pw_sch_class">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="studentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="termID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_classResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_classResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_list">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TermID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_listResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_listResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_progress_categories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="termID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_progress_categoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_progress_categoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_progress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="termID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_progressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_progressResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_calendar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_calendarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_calendarResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_announcement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_announcementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_announcementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_homework">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ShowEvents" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_homeworkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_homeworkResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_lessons">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LocalDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_lessonsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_lessonsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_documents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_documentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_documentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_links">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_linksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_linksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PW_GetTermList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PW_GetTermListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PW_GetTermListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_syllabus_categories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_syllabus_categoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_syllabus_categoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_syllabus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="SyllabusID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_class_syllabusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_class_syllabusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pw_sch_classSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_classSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_classResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_listSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_list" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_listSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_listResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_progress_categoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_progress_categories" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_progress_categoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_progress_categoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_progressSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_progress" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_progressSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_progressResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_calendarSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_calendar" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_calendarSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_calendarResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_announcementSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_announcement" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_announcementSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_announcementResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_homeworkSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_homework" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_homeworkSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_homeworkResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_lessonsSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_lessons" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_lessonsSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_lessonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_documentsSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_documents" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_documentsSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_documentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_linksSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_links" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_linksSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_linksResponse" />
+  </wsdl:message>
+  <wsdl:message name="PW_GetTermListSoapIn">
+    <wsdl:part name="parameters" element="tns:PW_GetTermList" />
+  </wsdl:message>
+  <wsdl:message name="PW_GetTermListSoapOut">
+    <wsdl:part name="parameters" element="tns:PW_GetTermListResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_syllabus_categoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_syllabus_categories" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_syllabus_categoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_syllabus_categoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_syllabusSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_syllabus" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_class_syllabusSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_class_syllabusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="pw_sch_classSiteSoap">
+    <wsdl:operation name="pw_sch_class">
+      <wsdl:input message="tns:pw_sch_classSoapIn" />
+      <wsdl:output message="tns:pw_sch_classSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_list">
+      <wsdl:input message="tns:pw_sch_class_listSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_listSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress_categories">
+      <wsdl:input message="tns:pw_sch_class_progress_categoriesSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_progress_categoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress">
+      <wsdl:input message="tns:pw_sch_class_progressSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_progressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_calendar">
+      <wsdl:input message="tns:pw_sch_class_calendarSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_calendarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_announcement">
+      <wsdl:input message="tns:pw_sch_class_announcementSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_announcementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_homework">
+      <wsdl:input message="tns:pw_sch_class_homeworkSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_homeworkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_lessons">
+      <wsdl:input message="tns:pw_sch_class_lessonsSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_lessonsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_documents">
+      <wsdl:input message="tns:pw_sch_class_documentsSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_documentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_links">
+      <wsdl:input message="tns:pw_sch_class_linksSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_linksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PW_GetTermList">
+      <wsdl:input message="tns:PW_GetTermListSoapIn" />
+      <wsdl:output message="tns:PW_GetTermListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus_categories">
+      <wsdl:input message="tns:pw_sch_class_syllabus_categoriesSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_syllabus_categoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus">
+      <wsdl:input message="tns:pw_sch_class_syllabusSoapIn" />
+      <wsdl:output message="tns:pw_sch_class_syllabusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="pw_sch_classSiteSoap" type="tns:pw_sch_classSiteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pw_sch_class">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_list">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_list" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress_categories">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_progress_categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_progress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_calendar">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_calendar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_announcement">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_announcement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_homework">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_homework" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_lessons">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_lessons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_documents">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_documents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_links">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_links" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PW_GetTermList">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/PW_GetTermList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus_categories">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_syllabus_categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_syllabus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="pw_sch_classSiteSoap12" type="tns:pw_sch_classSiteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pw_sch_class">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_list">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_list" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress_categories">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_progress_categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_progress">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_progress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_calendar">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_calendar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_announcement">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_announcement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_homework">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_homework" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_lessons">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_lessons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_documents">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_documents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_links">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_links" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PW_GetTermList">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/PW_GetTermList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus_categories">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_syllabus_categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_class_syllabus">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/classSite/pw_sch_class_syllabus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="pw_sch_classSite">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Welcome to the ParentsWeb webservices.</wsdl:documentation>
+    <wsdl:port name="pw_sch_classSiteSoap" binding="tns:pw_sch_classSiteSoap">
+      <soap:address location="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_classSite.asmx" />
+    </wsdl:port>
+    <wsdl:port name="pw_sch_classSiteSoap12" binding="tns:pw_sch_classSiteSoap12">
+      <soap12:address location="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_classSite.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

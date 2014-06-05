@@ -1,0 +1,24 @@
+﻿@model Tuple<IPagedList<UserViewModel>, string>
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>System Users</h1>
+            <h2>This page contains all of the system users.</h2>
+        </div>
+    </div>
+}
+
+@{
+    var pagedList = Model.Item1;
+    var pageSize = pagedList.PageSize;
+    var start = pageSize * (pagedList.PageNumber - 1);
+    var results = pagedList.ToList();
+    var nextPageAction = Model.Item2;
+}
+
+@if (results.Any())
+{
+    Html.RenderPartial("_UserViewModelTable", new Tuple<int, List<UserViewModel>>(start, results));
+    @Html.PagedListPager(pagedList, page => Url.Action(nextPageAction, new { page, pageSize }))
+}

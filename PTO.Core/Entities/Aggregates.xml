@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Aggregates>
+  <!--
+  This file contains aggregate entities, used to generate repositories and services
+    EntityName - This is the class name of the entity.
+    KeyType - This is the type of the key, if not given then the default is integer.
+    EntitySet - This is the name of the Aggregate Set that will be defined in the context. By default, this will be the simple pluralization (i.e., adding of 's') of the EnitytName.
+    EntityContext - This is the DbContext where the Aggregate resides. A default can be set in the AggregateSource.cs file reader.
+
+    SAMPLE:
+    <Aggregates>
+      <Aggregate EntityName="Job" />
+      <Aggregate EntityName="Email" KeyType="Guid" EntityContext="AppContext" />
+      <Aggregate EntityName="Company" EntitySet="Companies" />
+    </Aggregates>
+  -->
+  <Aggregate EntityName="Course" />
+  <Aggregate EntityName="Enrollment" />
+  <Aggregate EntityName="Parent" />
+  <Aggregate EntityName="Relationship" />
+  <Aggregate EntityName="Student" />
+  <Aggregate EntityName="User" />
+  <Aggregate EntityName="UserAddress" EntitySet="UserAddresses" />
+  <Aggregate EntityName="RenwebClassInfoResult" />
+  <Aggregate EntityName="RenwebFamilyMembersResult" />
+  <Aggregate EntityName="RenwebFamilyResult" />
+  <Aggregate EntityName="RenwebGradeLevelResult" />
+  <Aggregate EntityName="RenwebSchoolResult" />
+</Aggregates>

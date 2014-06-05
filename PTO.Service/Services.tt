@@ -1,0 +1,110 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="$(SolutionDir)\PTO.Core\bin\Debug\PTO.Core.Dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="PTO.Core.Entities" #>
+
+// ReSharper disable CheckNamespace
+namespace PTO.Service
+// ReSharper restore CheckNamespace
+{
+    using System;
+    using Entity;
+    using Entity.Renweb;
+    //using Entity.Email;
+    using Core.Interfaces;
+    using PTO.Infrastructure;
+
+    // ReSharper disable PartialTypeWithSinglePart
+<#
+var aggregates = PTO.Core.Entities.AggregateSource.GetAggregates();
+var lastEntity = aggregates.Last();
+foreach (AggregateDescriptor entity in aggregates) {
+#>
+    /// <summary>
+    /// Non-generic service interface for the <see cref="PTO.Entity.<#= entity.EntityName #>"/> entity
+    /// </summary>
+    public partial interface I<#= entity.EntityName #>Service : IEntityService<<#= entity.EntityName #>, <#= entity.KeyType #>>
+    {
+    }
+
+    /// <summary>
+    /// Non-generic service for the <see cref="PTO.Entity.<#= entity.EntityName #>"/> entity
+    /// </summary>
+    public partial class <#= entity.EntityName #>Service : EntityService<<#= entity.EntityName #>, <#= entity.KeyType #>, <#= entity.EntityContext #>>, I<#= entity.EntityName #>Service
+    {
+        public <#= entity.EntityName #>Service(ISession<<#= entity.EntityContext #>> session, IAppService service, Func<I<#= entity.EntityName #>Repository> repository)
+            : base(session, service, repository)
+        {
+        }
+    }
+<# } #>
+
+    public partial interface IAppService
+    {
+        void SaveChanges();
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+        void SaveChanges<<#= context #>>();
+<# } #>
+<# foreach (AggregateDescriptor entity in aggregates) { #>
+        I<#= entity.EntityName #>Service <#= entity.EntitySet #> { get; }
+<# } #>
+    }
+
+    public partial class AppService : IAppService
+    {
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+        private readonly ISession<<#= context #>> _<#= context #>Session;
+<# } #>
+
+<# foreach (AggregateDescriptor entity in aggregates) { #>
+        private readonly Lazy<I<#= entity.EntityName #>Service> _<#= entity.EntitySet.ToLower() #>;
+<# } #>
+
+        public AppService(
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+            ISession<<#= context #>> <#= context #>Session,
+<# } #>
+<# foreach (AggregateDescriptor entity in aggregates) {
+    if (!lastEntity.Equals(entity)) {
+#>
+            Func<I<#= entity.EntityName #>Service> <#= entity.EntitySet.ToLower() #>,
+<#
+    } else {
+#>
+            Func<I<#= entity.EntityName #>Service> <#= entity.EntitySet.ToLower() #>
+<#
+    }
+} #>
+        )
+        {
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+            _<#= context #>Session = <#= context #>Session;
+<# } #>
+<# foreach (AggregateDescriptor entity in aggregates) { #>
+            _<#= entity.EntitySet.ToLower() #> = new Lazy<I<#= entity.EntityName #>Service>(<#= entity.EntitySet.ToLower() #>);
+<# } #>
+        }
+
+<# foreach (AggregateDescriptor entity in aggregates) { #>
+        public I<#= entity.EntityName #>Service <#= entity.EntitySet #> { get { return _<#= entity.EntitySet.ToLower() #>.Value; } }
+<# } #>
+
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+        public void SaveChanges<<#= context #>>() {
+            _<#= context #>Session.Complete();
+        }
+<# } #>
+        public void SaveChanges() {
+<# foreach (string context in aggregates.Select(x => x.EntityContext).Distinct()) { #>
+            SaveChanges<<#= context #>>();
+<# } #>
+        }
+    }
+    // ReSharper restore PartialTypeWithSinglePart
+}

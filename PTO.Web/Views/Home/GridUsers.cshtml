@@ -1,0 +1,16 @@
+﻿@model List<UserViewModel>
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>System Users</h1>
+            <h2>This page contains a Grid.Mvc grid of all of the system users.</h2>
+        </div>
+    </div>
+}
+
+@Html.Grid(Model).Columns(cols => {
+    cols.Add(x => x.Id).Titled("Id").SetWidth(110).Sortable(true).Filterable(true);
+    cols.Add(x => x.DisplayName).Sortable(true).Filterable(true);
+    cols.Add(x => x.UserType).Titled("Type").Sortable(true).Filterable(true);
+}).WithPaging(5)

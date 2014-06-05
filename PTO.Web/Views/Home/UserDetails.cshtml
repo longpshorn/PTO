@@ -1,0 +1,32 @@
+﻿@model PTO.Entity.User
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>User Details</h1>
+            <h2>This page contains the details for a specific user.</h2>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-sm-6">@Html.LabelFor(x => x.Id)</div>
+    <div class="col-sm-6">@Html.DisplayFor(x => x.Id)</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">@Html.LabelFor(x => x.DisplayName)</div>
+    <div class="col-sm-6">@Html.DisplayFor(x => x.DisplayName)</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">@Html.LabelFor(x => x.AccountInfo.LoginEmail)</div>
+    <div class="col-sm-6">@Html.DisplayFor(x => x.AccountInfo.LoginEmail)</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">@Html.LabelFor(x => x.UserType)</div>
+    <div class="col-sm-6">@Html.DisplayFor(x => x.UserType)</div>
+</div>
+
+@Html.ActionLink("Back to list", "Users")

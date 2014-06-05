@@ -1,0 +1,32 @@
+﻿@model Tuple<int, List<UserViewModel>>
+
+@{
+    var rowNumber = 1 + Model.Item1;
+    var results = Model.Item2.ToList();
+}
+@if (results.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in results)
+            {
+                var email = result.Emails.FirstOrDefault();
+                var emailAddress = email == null ? string.Empty : email.Address;
+                <tr>
+                    <td>@(rowNumber++)</td>
+                    <td>@Html.ActionLink(result.DisplayName, "UserDetails", new { id = result.Id })</td>
+                    <td>@emailAddress</td>
+                    <td>@result.UserType.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

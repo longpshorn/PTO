@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.renweb.com/webservices/pwSchool/directory/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.renweb.com/webservices/pwSchool/directory/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Welcome to the ParentsWeb webservices.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.renweb.com/webservices/pwSchool/directory/">
+      <s:element name="pw_sch_directory_family">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FilterName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DirectoryType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="classCriteria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_familyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_familyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_print">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FilterName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DirectoryType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Criteria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="classCriteria" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_printResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_family_printResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_school">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FilterName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_schoolResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_schoolResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_members">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Person" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Address" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_membersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_family_membersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_gradelevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_family_gradelevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_family_gradelevelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_schoolinfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SchoolCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pw_sch_directory_schoolinfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pw_sch_directory_schoolinfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pw_sch_directory_familySoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_familySoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_familyResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_printSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_print" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_printSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_printResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_schoolSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_school" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_schoolSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_schoolResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_membersSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_members" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_membersSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_membersResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_gradelevelSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_gradelevel" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_family_gradelevelSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_family_gradelevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_schoolinfoSoapIn">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_schoolinfo" />
+  </wsdl:message>
+  <wsdl:message name="pw_sch_directory_schoolinfoSoapOut">
+    <wsdl:part name="parameters" element="tns:pw_sch_directory_schoolinfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="pw_sch_directorySoap">
+    <wsdl:operation name="pw_sch_directory_family">
+      <wsdl:input message="tns:pw_sch_directory_familySoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_familySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_print">
+      <wsdl:input message="tns:pw_sch_directory_family_printSoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_family_printSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_school">
+      <wsdl:input message="tns:pw_sch_directory_schoolSoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_schoolSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_members">
+      <wsdl:input message="tns:pw_sch_directory_family_membersSoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_family_membersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_gradelevel">
+      <wsdl:input message="tns:pw_sch_directory_family_gradelevelSoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_family_gradelevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_schoolinfo">
+      <wsdl:input message="tns:pw_sch_directory_schoolinfoSoapIn" />
+      <wsdl:output message="tns:pw_sch_directory_schoolinfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="pw_sch_directorySoap" type="tns:pw_sch_directorySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pw_sch_directory_family">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_print">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_print" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_school">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_school" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_members">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_members" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_gradelevel">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_gradelevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_schoolinfo">
+      <soap:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_schoolinfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="pw_sch_directorySoap12" type="tns:pw_sch_directorySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pw_sch_directory_family">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_print">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_print" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_school">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_school" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_members">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_members" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_family_gradelevel">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_family_gradelevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pw_sch_directory_schoolinfo">
+      <soap12:operation soapAction="http://www.renweb.com/webservices/pwSchool/directory/pw_sch_directory_schoolinfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="pw_sch_directory">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Welcome to the ParentsWeb webservices.</wsdl:documentation>
+    <wsdl:port name="pw_sch_directorySoap" binding="tns:pw_sch_directorySoap">
+      <soap:address location="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx" />
+    </wsdl:port>
+    <wsdl:port name="pw_sch_directorySoap12" binding="tns:pw_sch_directorySoap12">
+      <soap12:address location="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx?wsdl" docRef="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx" xmlns:q1="http://www.renweb.com/webservices/pwSchool/directory/" binding="q1:pw_sch_directorySoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://dis-tx.client.renweb.com/parentsweb/webservices/school/pw_sch_directory.asmx" xmlns:q2="http://www.renweb.com/webservices/pwSchool/directory/" binding="q2:pw_sch_directorySoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

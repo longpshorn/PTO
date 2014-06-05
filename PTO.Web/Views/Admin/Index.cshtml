@@ -1,0 +1,38 @@
+﻿@model Dictionary<string, Tuple<List<int>, List<Geocoding.Address>>>
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Address Listing</h1>
+            <h2>This page lists the addresses in the system for future geocoding.</h2>
+        </div>
+    </div>
+}
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var address in Model)
+        {
+            if (address.Value.Item2.Any())
+            {
+                <li>
+                    @address.Key - @string.Join(", ", address.Value.Item1)
+                    <ul>
+                        @foreach (var geocodedAddress in address.Value.Item2)
+                        {
+                            <li>
+                                Latitude: @geocodedAddress.Coordinates.Latitude<br />
+                                Longitude: @geocodedAddress.Coordinates.Longitude
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>@address.Key - @string.Join(", ", address.Value.Item1)</li>
+            }
+        }
+    </ul>
+}

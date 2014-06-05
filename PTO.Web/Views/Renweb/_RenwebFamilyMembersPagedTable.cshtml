@@ -1,0 +1,14 @@
+﻿@model Tuple<IPagedList<RenwebFamilyMembersResult>, string>
+
+@{
+    var pagedList = Model.Item1;
+    var pageSize = pagedList.PageSize;
+    var start = pageSize * (pagedList.PageNumber - 1);
+    var results = pagedList.ToList();
+    var nextPageAction = Model.Item2;
+}
+@if (results.Any())
+{
+    Html.RenderPartial("_RenwebFamilyMembersTable", new Tuple<int, List<RenwebFamilyMembersResult>>(start, results));
+    @Html.PagedListPager(pagedList, page => Url.Action(nextPageAction, new { page, pageSize }))
+}

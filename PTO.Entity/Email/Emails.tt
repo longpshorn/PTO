@@ -1,0 +1,41 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="$(SolutionDir)\PTO.Core\bin\Debug\PTO.Core.Dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="PTO.Core.Email" #>
+// ReSharper disable CheckNamespace
+namespace PTO.Entity.Email
+// ReSharper restore CheckNamespace
+{
+	using Entity;
+
+	// ReSharper disable PartialTypeWithSinglePart
+<#
+	foreach (EmailTypeDescriptor entity in PTO.Core.Email.EmailSource.GetEmailTypes(EmailSourceType.EntityEmail)) {
+#>
+	/// <summary>
+	/// Email entity in charge of emails for the <see cref="PTO.Entity.<#= entity.ModelType #>"/> entity
+	/// </summary>
+	public partial class <#= entity.EmailType #>Email : Email //<<#= entity.EmailType #>Email>
+	{
+		public <#= entity.EmailType #>Email(<#= entity.ModelType #> model)
+		{
+			TemplateType = TemplateType.<#= entity.EmailType #>;
+			<#= entity.ModelTypeName #> = model;
+			IsSolicited = <#= entity.IsSolicited #>;
+		}
+
+		public <#= entity.EmailType #>Email() : this(null) { }
+
+		public virtual <#= entity.ModelType #> <#= entity.ModelTypeName #> { get; set; }
+	}
+<#
+	}
+#>
+	// ReSharper restore PartialTypeWithSinglePart
+}

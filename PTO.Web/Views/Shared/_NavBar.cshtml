@@ -1,0 +1,57 @@
+﻿@{
+}
+
+@helper ActiveItem(string actionName, string controllerName, string areaName)
+{
+    var controller = ViewContext.RouteData.Values[AppStrings.Controller].ToString();
+    var action = ViewContext.RouteData.Values[AppStrings.Action].ToString();
+    var area = ViewContext.RouteData.DataTokens[AppStrings.Area] != null
+        ? ViewContext.RouteData.DataTokens[AppStrings.Area].ToString()
+        : null;
+
+    if (action == actionName && controller == controllerName && area == areaName) {
+        @:active
+    }
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">@PageHeaders.Home</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="@ActiveItem("Index", "Home", null)">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="@ActiveItem("About", "Home", null)">@Html.ActionLink("About", "About", "Home")</li>
+                <li class="@ActiveItem("Contact", "Home", null)">@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                <li class="dropdown @ActiveItem("Users", "Home", null)">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Users", "Users", "Home")</li>
+                        <li>@Html.ActionLink("Grid Users", "GridUsers", "Home")</li>
+                    </ul>
+                </li>
+
+                <li class="dropdown @ActiveItem("Index", "Renweb", null)">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Renweb Users <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Local Family Results", "FamilyResultsLocal", "Renweb")</li>
+                        <li>@Html.ActionLink("Pull Family Results", "PullFamilyResults", "Renweb")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Local Family Member Results", "FamilyMembersResultsLocal", "Renweb")</li>
+                        <li>@Html.ActionLink("Pull Family Member Results", "PullFamilyMembersResults", "Renweb")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink("Remote Family Results", "FamilyResultsRemote", "Renweb")</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="$(SolutionDir)\PTO.Core\bin\Debug\PTO.Core.Dll" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="PTO.Core.Entities" #>
+
+// ReSharper disable CheckNamespace
+namespace PTO.Infrastructure
+// ReSharper restore CheckNamespace
+{
+    using System;
+    using Entity;
+    using Entity.Renweb;
+    //using Entity.Email;
+    using Core.Interfaces;
+
+    // ReSharper disable PartialTypeWithSinglePart
+<# foreach (AggregateDescriptor entity in PTO.Core.Entities.AggregateSource.GetAggregates()) { #>
+    /// <summary>
+    /// Non-generic repository interface for the <see cref="PTO.Entity.<#= entity.EntityName #>"/> entity
+    /// </summary>
+    public partial interface I<#= entity.EntityName #>Repository : IEntityRepository<<#= entity.EntityName #>, <#= entity.KeyType #>>
+    {
+    }
+
+    /// <summary>
+    /// Non-generic repository for the <see cref="PTO.Entity.<#= entity.EntityName #>"/> entity
+    /// </summary>
+    public partial class <#= entity.EntityName #>Repository : EntityRepository<<#= entity.EntityName #>, <#= entity.KeyType #>, <#= entity.EntityContext #>>, I<#= entity.EntityName #>Repository
+    {
+        public <#= entity.EntityName #>Repository(ISession<<#= entity.EntityContext #>> session)
+            : base(session)
+        {
+        }
+    }
+<# } #>
+    // ReSharper restore PartialTypeWithSinglePart
+}

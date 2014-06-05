@@ -1,0 +1,12 @@
+﻿@model IPagedList<RenwebFamilyResult>
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Locally Stored Renweb Users</h1>
+            <h2>This page lists the contents of the locally stored users from the renweb directory.</h2>
+        </div>
+    </div>
+}
+
+@{ Html.RenderPartial("_RenwebFamilyPagedTable", new Tuple<IPagedList<RenwebFamilyResult>, string>(Model, "FamilyResultsLocal")); }

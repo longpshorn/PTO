@@ -1,0 +1,44 @@
+﻿@model Tuple<int, List<RenwebFamilyResult>>
+
+@{
+    var rowNumber = 1 + Model.Item1;
+    var results = Model.Item2.ToList();
+}
+@if (results.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Parents</th>
+                <th>Home</th>
+                <th>Work</th>
+                <th>Other</th>
+                <th>Address</th>
+                <th>AddressID</th>
+                <th>PersonID</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in results)
+            {
+                <tr>
+                    <td>@(rowNumber++)</td>
+                    <td>@result.Student</td>
+                    <td>@result.Grade</td>
+                    <td>@result.Parents</td>
+                    <td>@result.Home</td>
+                    <td>@result.Work</td>
+                    <td>@result.Other</td>
+                    <td>@result.Address</td>
+                    <td>@result.AddressID</td>
+                    <td>@result.personID</td>
+                    <td>@result.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

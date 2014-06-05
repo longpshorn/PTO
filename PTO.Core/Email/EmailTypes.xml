@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EmailTypes>
+  <!-- Entity-specific emails -->
+  <!--
+  <EntityEmail TypeName="Registration" ModelTypeName="Registration" IsSolicited="true" />
+  <EntityEmail TypeName="Feedback" />
+  -->
+</EmailTypes>

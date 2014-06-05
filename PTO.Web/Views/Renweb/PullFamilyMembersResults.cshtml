@@ -1,0 +1,30 @@
+﻿@model Tuple<IPagedList<RenwebFamilyMembersResult>, List<RenwebFamilyMembersResult>>
+
+@section featured {
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Users Pulled from Renweb</h1>
+            <h2>This page lists users that were stored locally that did not have Family Member data that have now been updated.</h2>
+        </div>
+    </div>
+}
+
+@if (Model.Item1.Any())
+{
+    <div class="alert alert-success">
+        @(Model.Item1.TotalItemCount) users were sucessfully pulled from Renweb.
+    </div>
+
+    Html.RenderPartial("_RenwebFamilyMembersPagedTable", new Tuple<IPagedList<RenwebFamilyMembersResult>, string>(Model.Item1, "FamilyMembersResultsLocal"));
+
+    @Html.ActionLink("View full list of local user with their details", "FamilyMembersResultsLocal")
+}
+
+@if (Model.Item2.Any())
+{
+    <div class="alert alert-danger">
+        @Model.Item2.Count users were not sucessfully pulled from Renweb.
+    </div>
+
+    Html.RenderPartial("_RenwebFamilyMembersTable", new Tuple<int, List<RenwebFamilyMembersResult>>(0, Model.Item2));
+}
