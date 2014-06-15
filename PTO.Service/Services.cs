@@ -27,6 +27,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new ICourseRepository Repository
+        {
+            get { return base.Repository as ICourseRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.Enrollment"/> entity
@@ -43,6 +48,11 @@ namespace PTO.Service
         public EnrollmentService(ISession<AppContext> session, IAppService service, Func<IEnrollmentRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IEnrollmentRepository Repository
+        {
+            get { return base.Repository as IEnrollmentRepository; }
         }
     }
     /// <summary>
@@ -61,6 +71,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new IParentRepository Repository
+        {
+            get { return base.Repository as IParentRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.Relationship"/> entity
@@ -77,6 +92,11 @@ namespace PTO.Service
         public RelationshipService(ISession<AppContext> session, IAppService service, Func<IRelationshipRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IRelationshipRepository Repository
+        {
+            get { return base.Repository as IRelationshipRepository; }
         }
     }
     /// <summary>
@@ -95,6 +115,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new IStudentRepository Repository
+        {
+            get { return base.Repository as IStudentRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.User"/> entity
@@ -111,6 +136,11 @@ namespace PTO.Service
         public UserService(ISession<AppContext> session, IAppService service, Func<IUserRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IUserRepository Repository
+        {
+            get { return base.Repository as IUserRepository; }
         }
     }
     /// <summary>
@@ -129,6 +159,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new IUserAddressRepository Repository
+        {
+            get { return base.Repository as IUserAddressRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.RenwebClassInfoResult"/> entity
@@ -145,6 +180,11 @@ namespace PTO.Service
         public RenwebClassInfoResultService(ISession<AppContext> session, IAppService service, Func<IRenwebClassInfoResultRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IRenwebClassInfoResultRepository Repository
+        {
+            get { return base.Repository as IRenwebClassInfoResultRepository; }
         }
     }
     /// <summary>
@@ -163,6 +203,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new IRenwebFamilyMembersResultRepository Repository
+        {
+            get { return base.Repository as IRenwebFamilyMembersResultRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.RenwebFamilyResult"/> entity
@@ -179,6 +224,11 @@ namespace PTO.Service
         public RenwebFamilyResultService(ISession<AppContext> session, IAppService service, Func<IRenwebFamilyResultRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IRenwebFamilyResultRepository Repository
+        {
+            get { return base.Repository as IRenwebFamilyResultRepository; }
         }
     }
     /// <summary>
@@ -197,6 +247,11 @@ namespace PTO.Service
             : base(session, service, repository)
         {
         }
+
+        protected new IRenwebGradeLevelResultRepository Repository
+        {
+            get { return base.Repository as IRenwebGradeLevelResultRepository; }
+        }
     }
     /// <summary>
     /// Non-generic service interface for the <see cref="PTO.Entity.RenwebSchoolResult"/> entity
@@ -213,6 +268,11 @@ namespace PTO.Service
         public RenwebSchoolResultService(ISession<AppContext> session, IAppService service, Func<IRenwebSchoolResultRepository> repository)
             : base(session, service, repository)
         {
+        }
+
+        protected new IRenwebSchoolResultRepository Repository
+        {
+            get { return base.Repository as IRenwebSchoolResultRepository; }
         }
     }
 

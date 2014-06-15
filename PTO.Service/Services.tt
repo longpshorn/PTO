@@ -42,6 +42,11 @@ foreach (AggregateDescriptor entity in aggregates) {
             : base(session, service, repository)
         {
         }
+
+        protected new I<#= entity.EntityName #>Repository Repository
+        {
+            get { return base.Repository as I<#= entity.EntityName #>Repository; }
+        }
     }
 <# } #>
 
