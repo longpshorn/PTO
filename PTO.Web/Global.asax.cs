@@ -1,10 +1,11 @@
-﻿using Autofac;
-using Autofac.Extras.CommonServiceLocator;
+﻿using Autofac.Extras.CommonServiceLocator;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Microsoft.Practices.ServiceLocation;
 using PTO.Infrastructure.DI;
 using PTO.Service.DI;
+using StackExchange.Profiling;
+using StackExchange.Profiling.EntityFramework6;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,6 +20,7 @@ namespace PTO.Web
     {
         protected void Application_Start()
         {
+            MiniProfilerEF6.Initialize();
             SetupDependencyInjectionContainer();
 
             AreaRegistration.RegisterAllAreas();
@@ -42,6 +44,19 @@ namespace PTO.Web
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             ServiceLocator.SetLocatorProvider(() => new AutofacServiceLocator(container));
+        }
+
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsLocal)
+            {
+                MiniProfiler.Start();
+            }
+        }
+
+        protected void Application_EndRequest()
+        {
+            MiniProfiler.Stop();
         }
     }
 }

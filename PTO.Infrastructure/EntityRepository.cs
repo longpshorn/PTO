@@ -47,7 +47,7 @@ namespace PTO.Infrastructure
             }
         }
 
-        protected TContext Context { get { return Session.GetUnitOfWork(); } }
+        public TContext Context { get { return Session.GetUnitOfWork(); } }
 
         protected virtual DbSet<TEntity> DbSet { get { return Context.Set<TEntity>(); } }
 

@@ -16,7 +16,7 @@ using System.Linq;
 
 namespace PTO.Infrastructure
 {
-    public class AppContext : DbContext, IUnitOfWork
+    public class AppContext : AppDbContext, IUnitOfWork
     {
         static AppContext()
         {
